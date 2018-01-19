@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<accessrules>
+			<accessrule kind="accessible" pattern="**"/>
+		</accessrules>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/fluent-hc-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpclient-cache-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpclient-win-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/httpmime-4.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/httpcomponents-client-4.5.2-bin/httpcomponents-client-4.5.2/lib/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/mail.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/activation.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/additionnal.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/dsn.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/imap.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/mail.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/mailapi.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/pop3.jar"/>
+	<classpathentry kind="lib" path="C:/项目/新建文件夹/jar/新建文件夹/smtp.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
