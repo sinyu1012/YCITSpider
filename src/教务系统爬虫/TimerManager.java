@@ -20,11 +20,11 @@ public class TimerManager {
 	}
 
 	//时间间隔(一天)
-	private static final long PERIOD_DAY = 30 * 60 * 1000;
+	private static final long PERIOD_DAY = 10 * 60 * 1000;
 	public TimerManager() {
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.HOUR_OF_DAY, 13); //凌晨
-		calendar.set(Calendar.MINUTE, 07);
+		calendar.set(Calendar.HOUR_OF_DAY, 9); //几点
+		calendar.set(Calendar.MINUTE, 00);
 		calendar.set(Calendar.SECOND, 0);
 		Date date=calendar.getTime(); //第一次执行定时任务的时间
 		//如果第一次执行定时任务的时间 小于当前的时间

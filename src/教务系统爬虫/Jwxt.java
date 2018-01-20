@@ -52,8 +52,6 @@ public class Jwxt {
 	}
 	public static boolean login(String stuNumber, String password)
 			throws UnsupportedOperationException, Exception {
-		//this.stuNumber = stuNumber;
-		// 获取验证码
 		stuName="";
 		HttpGet secretCodeGet = new HttpGet(secretCodeUrl);
 		CloseableHttpClient client = HttpClients.createDefault();
@@ -82,8 +80,6 @@ public class Jwxt {
 		HttpEntity result = responseLogin.getEntity();// 拿到返回的HttpResponse的"实体"
 		String content = EntityUtils.toString(result);
 		// 用httpcore.jar提供的工具类将"实体"转化为字符串打印到控制台
-		// System.out.println(content);
-		// System.out.println(responseLogin.getStatusLine().getStatusCode());
 		if (responseLogin.getStatusLine().getStatusCode() == 200) {
 			// 如果提交成功，带着Cookie请求重定向的main页面，并获取学生姓名
 			//System.out.println("成功");
@@ -107,8 +103,7 @@ public class Jwxt {
 			for (int j = 1; j < 5; j++)
 				stuName+=eleGrade.get(j).text() + " ";
 				//System.out.print(eleGrade.get(j).text() + " ");
-			System.out.println();
-			//stuName = Jsoup.parse(html).getElementById("xhxm").text();
+			
 			client.close();
 			return true;
 		} else {
@@ -121,6 +116,7 @@ public class Jwxt {
 	public static String queryStuGrade()
 			throws ClientProtocolException, IOException {
 		String str="";
+		int count=0;
 		CloseableHttpClient client = HttpClients.createDefault();
 		String newQueryStuGradeUrl = queryStuGradeUrl ;
 		//System.out.println(newQueryStuGradeUrl);
@@ -149,13 +145,16 @@ public class Jwxt {
 					str+=eleGrade.get(j).text() + " ";
 					//System.out.print(eleGrade.get(j).text() + " ");
 					}
-				// i = i + 1;
-				// System.out.print(eleGrade.get(i).text());
 				str+="<br>";
+				count++;
 			}
-
 		}
-		//System.out.println(str);
+		if(count==MyConstants.courseCount){
+			System.out.println("无更新！");
+		}else{
+			MyConstants.isSend=1;
+			MyConstants.courseCount=count;
+		}
 		client.close();
 		return str;
 	}

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.mail.MessagingException;
+
 import java.util.TimerTask;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,15 +24,17 @@ import java.util.Map;
 import javax.mail.MessagingException;
 public class SendEmailTask extends TimerTask {  
     public void run(){  
-        System.out.println("每天定时任务启动..."); 
-        System.out.println("获取今日数据中..."); 
+        System.out.println("获取数据中..."); 
         Jwxt jwxt=new Jwxt();
         
         String str=jwxt.toString();
 //        System.out.println(str);
         float a=3;
         try {
-			sendEmail("盐工定时成绩刷新",str);
+        	if(MyConstants.isSend==1)
+        		sendEmail("盐工定时成绩刷新",str);
+        	else
+        		System.out.println("无更新，不发送");
 		} catch (MessagingException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
