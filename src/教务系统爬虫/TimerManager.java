@@ -24,7 +24,7 @@ public class TimerManager {
 	public TimerManager() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.HOUR_OF_DAY, 10); //几点
-		calendar.set(Calendar.MINUTE, 05);
+		calendar.set(Calendar.MINUTE, 35);
 		calendar.set(Calendar.SECOND, 0);
 		Date date=calendar.getTime(); //第一次执行定时任务的时间
 		//如果第一次执行定时任务的时间 小于当前的时间
