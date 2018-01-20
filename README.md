@@ -6,4 +6,4 @@
 jwxt.java文件为登录并获取成绩爬虫，更目录lib下是依赖jar包。
 
 
-![image](https://raw.githubusercontent.com/sinyu1012/YCITSpider/master/images/email.png)
+![image](https://raw.githubusercontent.com/sinyu1012/YCITSpider/master/images/new.png)
