@@ -28,11 +28,11 @@ public class SendEmailTask extends TimerTask {
         Jwxt jwxt=new Jwxt();
         
         String str=jwxt.toString();
-//        System.out.println(str);
+        System.out.println(str);
         float a=3;
         try {
         	if(MyConstants.isSend==1)
-        		sendEmail("盐工定时成绩刷新",str);
+        		sendEmail("盐工-有最新成绩更新",str);
         	else
         		System.out.println("无更新，不发送");
 		} catch (MessagingException | IOException e) {

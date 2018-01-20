@@ -48,7 +48,7 @@ public class Jwxt {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return stuName+"<br>"+grade;
+		return stuName+"\n<br>"+grade;
 	}
 	public static boolean login(String stuNumber, String password)
 			throws UnsupportedOperationException, Exception {
@@ -58,7 +58,7 @@ public class Jwxt {
 		CloseableHttpResponse responseSecret = client.execute(secretCodeGet);
 		// 获取返回的Cookie
 		Cookie = responseSecret.getFirstHeader("Set-Cookie").getValue().split(";")[0];
-		System.out.println("Cookie:" + Cookie);
+		//System.out.println("Cookie:" + Cookie);
 
 		HttpPost loginPost = new HttpPost(loginUrl);// 创建登录的Post请求
 		loginPost.setHeader("Cookie", Cookie);// 带上第一次请求的Cookie
@@ -99,7 +99,7 @@ public class Jwxt {
 				e.printStackTrace();
 			}
 			Elements eleGrade =Jsoup.parse(html).getElementsByClass("titleTop3").select("td");
-			System.out.println("登录成功！欢迎您!" );
+			//System.out.println("登录成功！欢迎您!" );
 			for (int j = 1; j < 5; j++)
 				stuName+=eleGrade.get(j).text() + " ";
 				//System.out.print(eleGrade.get(j).text() + " ");
@@ -145,7 +145,7 @@ public class Jwxt {
 					str+=eleGrade.get(j).text() + " ";
 					//System.out.print(eleGrade.get(j).text() + " ");
 					}
-				str+="<br>";
+				str+="\n<br>";
 				count++;
 			}
 		}
