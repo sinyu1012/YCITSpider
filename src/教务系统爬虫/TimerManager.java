@@ -26,7 +26,9 @@ public class TimerManager {
 		calendar.set(Calendar.HOUR_OF_DAY, 10); //几点
 		calendar.set(Calendar.MINUTE, 35);
 		calendar.set(Calendar.SECOND, 0);
-		Date date=calendar.getTime(); //第一次执行定时任务的时间
+		
+		//Date date=calendar.getTime(); //第一次执行定时任务的时间
+		Date date=new Date();//立即执行
 		//如果第一次执行定时任务的时间 小于当前的时间
 		//此时要在 第一次执行定时任务的时间加一天，以便此任务在下个时间点执行。如果不加一天，任务会立即执行。
 		if (date.before(new Date())) {

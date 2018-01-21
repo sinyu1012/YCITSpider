@@ -1,5 +1,6 @@
 package 教务系统爬虫;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -24,9 +25,11 @@ import java.util.Map;
 import javax.mail.MessagingException;
 public class SendEmailTask extends TimerTask {  
     public void run(){  
+    	System.out.println("************刷新*******************");
         System.out.println("获取数据中..."); 
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
         Jwxt jwxt=new Jwxt();
-        
         String str=jwxt.toString();
         System.out.println(str);
         float a=3;
@@ -37,6 +40,8 @@ public class SendEmailTask extends TimerTask {
         	}
         	else
         		System.out.println("无更新，不发送");
+
+        	System.out.println("*********************************");
 		} catch (MessagingException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

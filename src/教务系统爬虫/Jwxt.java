@@ -149,6 +149,7 @@ public class Jwxt {
 				count++;
 			}
 		}
+		//System.out.println(count+MyConstants.courseCount);
 		if(count==MyConstants.courseCount){
 			System.out.println("ÎŞ¸üĞÂ£¡");
 		}else{
