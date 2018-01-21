@@ -4,3 +4,6 @@
 功能：5分钟爬取一次成绩列表，并检查是否有更新，有最新成绩则发送邮件到邮箱。  
 jwxt.java文件为登录并获取成绩爬虫，根目录lib下是依赖jar包。  
 ![image](https://raw.githubusercontent.com/sinyu1012/YCITSpider/master/images/new.png)
+
+
+![image](https://raw.githubusercontent.com/sinyu1012/YCITSpider/master/images/cmd.png)
