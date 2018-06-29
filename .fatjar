@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Thu Jun 28 15:08:16 CST 2018
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=D\:\\\u9879\u76EE\\Eclipse\\\u76D0\u57CE\u5DE5\u5B66\u9662\u722C\u866B\\spider_fat.jar
+manifest.mergeall=true
+manifest.mainclass=timespider.TimerManager
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=
