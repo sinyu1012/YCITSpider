@@ -30,16 +30,17 @@ public class Jwxt {
 	private static String loginUrl = "http://222.188.0.101/loginAction.do";
 	private static String queryStuBXQGradeUrl = "http://222.188.0.101/bxqcjcxAction.do";
 	private static String queryStuGradeUrl="http://222.188.0.101/gradeLnAllAction.do?type=ln&oper=sxinfo&lnsxdm=001";
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		try {
-//			login("1560704118", "04282914");
-//			queryStuGrade();
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			login("1560704118", "04282914");
+			System.out.println();
+			queryStuGrade();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public String toString(String xh,String pwd){
 		String grade="";
 		try {
@@ -97,7 +98,7 @@ public class Jwxt {
 			String html = "";
 			try {
 				html = IOUtils.getHtml(is, "GB2312");
-			    //System.out.println(html);
+			    System.out.println(html);
 			} catch (Exception e) {
 				System.out.println("解析html失败！");
 				e.printStackTrace();
@@ -178,7 +179,7 @@ public class Jwxt {
 		//System.out.println(str);
 //		System.out.println(count+"  "+MyConstants.courseCount);
 		if(count==MyConstants.courseCount){
-			System.out.println("无更新！");
+			System.out.println("已出门数："+count);
 		}else{
 			System.out.println("有更新！");
 			MyConstants.isSend=1;

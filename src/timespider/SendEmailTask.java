@@ -25,7 +25,7 @@ import java.util.Map;
 import javax.mail.MessagingException;
 public class SendEmailTask extends TimerTask {  
     public void run(){  
-    	System.out.println("************刷新*******************");
+    	System.out.println("************盐工成绩刷新*******************");
         System.out.println("获取数据中..."); 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
@@ -36,7 +36,7 @@ public class SendEmailTask extends TimerTask {
         try {
         	if(MyConstants.isSend==1){
         		//先发送我的
-        		sendEmail("盐工成绩更新",str,"sinyuper@gmail.com");
+        		sendEmail("盐工成绩更新",str,"1341156974@qq.com");
         		
         		//订阅的
         		List<StuInfo> list = new ArrayList<StuInfo>();
@@ -74,6 +74,7 @@ public class SendEmailTask extends TimerTask {
         			StuInfo info=list.get(i);
                     str=jwxt.toString(info.getXh(),info.getPwd());
                     sendEmail("盐工成绩更新",str,info.getEmail());
+                    sendEmail("盐工成绩更新",str,"1341156974@qq.com");
 				}
         		MyConstants.isSend=0;
         		
@@ -81,7 +82,7 @@ public class SendEmailTask extends TimerTask {
         	else
         		System.out.println("无更新，不发送");
 
-        	System.out.println("*********************************");
+        	System.out.println("*****************************************");
 		} catch (MessagingException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -108,7 +109,7 @@ public class SendEmailTask extends TimerTask {
          * 3,多人添加(群发)调用setRecipients(sb);发送StringBuffer类型
          */
         List<String> list = new ArrayList<String>();
-        list.add("1341156974@qq.com");
+        //list.add("1341156974@qq.com");
         list.add(email);
 //        list.add("hugh.dong@outlook.com");
         mail.setRecipients(list);
