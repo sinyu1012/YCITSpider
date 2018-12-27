@@ -74,7 +74,7 @@ public class SendEmailTask extends TimerTask {
         			StuInfo info=list.get(i);
                     str=jwxt.toString(info.getXh(),info.getPwd());
                     sendEmail("盐工成绩更新",str,info.getEmail());
-                    sendEmail("盐工成绩更新",str,"1341156974@qq.com");
+                    //sendEmail("盐工成绩更新",str,"1341156974@qq.com");
 				}
         		MyConstants.isSend=0;
         		

@@ -26,7 +26,7 @@ public class Jwxt {
 	private static String stuName = "";
 	private static String Cookie = "";
 	private static String secretCodeUrl1 = "https://www.baidu.com/";
-	private static String secretCodeUrl = "http://222.188.0.101/loginAction.do";
+	private static String secretCodeUrl = "http://222.188.0.101";
 	private static String loginUrl = "http://222.188.0.101/loginAction.do";
 	private static String queryStuBXQGradeUrl = "http://222.188.0.101/bxqcjcxAction.do";
 	private static String queryStuGradeUrl="http://222.188.0.101/gradeLnAllAction.do?type=ln&oper=sxinfo&lnsxdm=001";
@@ -62,8 +62,15 @@ public class Jwxt {
 		CloseableHttpClient client = HttpClients.createDefault();
 		CloseableHttpResponse responseSecret = client.execute(secretCodeGet);
 		// 获取返回的Cookie
-		Cookie = responseSecret.getFirstHeader("Set-Cookie").getValue().split(";")[0];
-		//System.out.println("Cookie:" + Cookie);
+		try {
+			Cookie = responseSecret.getFirstHeader("Set-Cookie").getValue();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("再次执行");
+			login(stuNumber,password);
+		}
+		
+		System.out.println("Cookie:" + Cookie);
 
 		HttpPost loginPost = new HttpPost(loginUrl);// 创建登录的Post请求
 		loginPost.setHeader("Cookie", Cookie);// 带上第一次请求的Cookie
@@ -98,7 +105,7 @@ public class Jwxt {
 			String html = "";
 			try {
 				html = IOUtils.getHtml(is, "GB2312");
-			    System.out.println(html);
+//			    System.out.println(html);
 			} catch (Exception e) {
 				System.out.println("解析html失败！");
 				e.printStackTrace();

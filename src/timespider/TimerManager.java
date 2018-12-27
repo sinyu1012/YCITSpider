@@ -19,8 +19,8 @@ public class TimerManager {
 		new TimerManager();  
 	}
 
-	//时间间隔(一天)
-	private static final long PERIOD_DAY = 5 * 60 * 1000;
+	//时间间隔(20分钟)
+	private static final long PERIOD_DAY = 20 * 60 * 1000;
 	public TimerManager() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.HOUR_OF_DAY, 10); //几点
