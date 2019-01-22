@@ -33,7 +33,7 @@ public class Jwxt {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			login("1560704118", "04282914");
+			login("", "");
 			System.out.println();
 			queryStuGrade();
 		} catch (Exception e) {
@@ -44,7 +44,7 @@ public class Jwxt {
 	public String toString(String xh,String pwd){
 		String grade="";
 		try {
-			System.out.println("µÇÂ¼ÖĞ...");
+			System.out.println("ç™»å½•ä¸­...");
 			login(xh,pwd);
 			grade=queryStuGrade();
 			
@@ -61,24 +61,24 @@ public class Jwxt {
 		HttpGet secretCodeGet = new HttpGet(secretCodeUrl);
 		CloseableHttpClient client = HttpClients.createDefault();
 		CloseableHttpResponse responseSecret = client.execute(secretCodeGet);
-		// »ñÈ¡·µ»ØµÄCookie
+		// è·å–è¿”å›çš„Cookie
 		try {
 			Cookie = responseSecret.getFirstHeader("Set-Cookie").getValue();
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("ÔÙ´ÎÖ´ĞĞ");
+			System.out.println("å†æ¬¡æ‰§è¡Œ");
 			login(stuNumber,password);
 		}
 		
 		System.out.println("Cookie:" + Cookie);
 
-		HttpPost loginPost = new HttpPost(loginUrl);// ´´½¨µÇÂ¼µÄPostÇëÇó
-		loginPost.setHeader("Cookie", Cookie);// ´øÉÏµÚÒ»´ÎÇëÇóµÄCookie
+		HttpPost loginPost = new HttpPost(loginUrl);// åˆ›å»ºç™»å½•çš„Postè¯·æ±‚
+		loginPost.setHeader("Cookie", Cookie);// å¸¦ä¸Šç¬¬ä¸€æ¬¡è¯·æ±‚çš„Cookie
 		loginPost.setHeader("Content-Type", "application/x-www-form-urlencoded"); 
 
 		loginPost.setHeader("Host", "222.188.0.101");
 		loginPost.setHeader("Referer", "http://222.188.0.101/logout.do");
-		List<NameValuePair> nameValuePairLogin = new ArrayList<NameValuePair>();// ·â×°PostÌá½»²ÎÊı
+		List<NameValuePair> nameValuePairLogin = new ArrayList<NameValuePair>();// å°è£…Postæäº¤å‚æ•°
 		nameValuePairLogin.add(new BasicNameValuePair("mm",  password));//
 		nameValuePairLogin.add(new BasicNameValuePair("zjh",stuNumber));// 
 		//
@@ -88,13 +88,13 @@ public class Jwxt {
 		loginPost.setEntity(entity);
 		HttpResponse responseLogin = client.execute(loginPost);
 		// client1.close();
-		// µÚÈı²½:ÅĞ¶ÏÌá½»Êı¾İÊÇ·ñ³É¹¦£¬³É¹¦·µ»Ø302
-		HttpEntity result = responseLogin.getEntity();// ÄÃµ½·µ»ØµÄHttpResponseµÄ"ÊµÌå"
+		// ç¬¬ä¸‰æ­¥:åˆ¤æ–­æäº¤æ•°æ®æ˜¯å¦æˆåŠŸï¼ŒæˆåŠŸè¿”å›302
+		HttpEntity result = responseLogin.getEntity();// æ‹¿åˆ°è¿”å›çš„HttpResponseçš„"å®ä½“"
 		String content = EntityUtils.toString(result);
-		// ÓÃhttpcore.jarÌá¹©µÄ¹¤¾ßÀà½«"ÊµÌå"×ª»¯Îª×Ö·û´®´òÓ¡µ½¿ØÖÆÌ¨
+		// ç”¨httpcore.jaræä¾›çš„å·¥å…·ç±»å°†"å®ä½“"è½¬åŒ–ä¸ºå­—ç¬¦ä¸²æ‰“å°åˆ°æ§åˆ¶å°
 		if (responseLogin.getStatusLine().getStatusCode() == 200) {
-			// Èç¹ûÌá½»³É¹¦£¬´ø×ÅCookieÇëÇóÖØ¶¨ÏòµÄmainÒ³Ãæ£¬²¢»ñÈ¡Ñ§ÉúĞÕÃû
-			//System.out.println("µÇÂ¼³É¹¦");
+			// å¦‚æœæäº¤æˆåŠŸï¼Œå¸¦ç€Cookieè¯·æ±‚é‡å®šå‘çš„mainé¡µé¢ï¼Œå¹¶è·å–å­¦ç”Ÿå§“å
+			//System.out.println("ç™»å½•æˆåŠŸ");
 			HttpGet mainGet = new HttpGet(
 					"http://222.188.0.101/xjInfoAction.do?oper=xjxx");
 			mainGet.setHeader("Cookie", Cookie);
@@ -107,11 +107,11 @@ public class Jwxt {
 				html = IOUtils.getHtml(is, "GB2312");
 //			    System.out.println(html);
 			} catch (Exception e) {
-				System.out.println("½âÎöhtmlÊ§°Ü£¡");
+				System.out.println("è§£æhtmlå¤±è´¥ï¼");
 				e.printStackTrace();
 			}
 			Elements eleGrade =Jsoup.parse(html).getElementsByClass("titleTop3").select("td");
-			//System.out.println("µÇÂ¼³É¹¦£¡»¶Ó­Äú!" );
+			//System.out.println("ç™»å½•æˆåŠŸï¼æ¬¢è¿æ‚¨!" );
 			for (int j = 1; j < 5; j++)
 				stuName+=eleGrade.get(j).text() + " ";
 				//System.out.print(eleGrade.get(j).text() + " ");
@@ -119,7 +119,7 @@ public class Jwxt {
 			client.close();
 			return true;
 		} else {
-			System.out.println("µÇÂ¼Ê§°Ü£¡");
+			System.out.println("ç™»å½•å¤±è´¥ï¼");
 			client.close();
 			return false;
 		}
@@ -144,13 +144,13 @@ public class Jwxt {
 			html = IOUtils.getHtml(is, "GB2312");
 //		    System.out.println(html);
 		} catch (Exception e) {
-			System.out.println("½âÎöhtmlÊ§°Ü£¡");
+			System.out.println("è§£æhtmlå¤±è´¥ï¼");
 			e.printStackTrace();
 		}
 		
 		Document gradeDoc = Jsoup.parse(html);
 		Elements eleGrade = gradeDoc.select("td");
-		// °´ĞèÇó½âÎöhtml<td>±êÇ©ÄÚÈİ²¢Êä³ö
+		// æŒ‰éœ€æ±‚è§£æhtml<td>æ ‡ç­¾å†…å®¹å¹¶è¾“å‡º
 		int x=1;
 		for (int i = 9; i < eleGrade.size(); i +=7 ) {
 			x=1;
@@ -166,8 +166,8 @@ public class Jwxt {
 						}
 						if (grade>0) {
 							count++;
-							str+="    ·ÖÊı:"+eleGrade.get(j).text() + " ";
-							//System.out.print("·ÖÊı:"+eleGrade.get(j).text() + " ");
+							str+="    åˆ†æ•°:"+eleGrade.get(j).text() + " ";
+							//System.out.print("åˆ†æ•°:"+eleGrade.get(j).text() + " ");
 						}
 						
 					}else if (x==3){
@@ -181,14 +181,14 @@ public class Jwxt {
 				
 			}
 		}
-		str+="\n<br>"+"½ÌÎñÏµÍ³ÍøÖ·£ºhttp://222.188.0.101/";
+		str+="\n<br>"+"æ•™åŠ¡ç³»ç»Ÿç½‘å€ï¼šhttp://222.188.0.101/";
 //		System.out.println();
 		//System.out.println(str);
 //		System.out.println(count+"  "+MyConstants.courseCount);
 		if(count==MyConstants.courseCount){
-			System.out.println("ÒÑ³öÃÅÊı£º"+count);
+			System.out.println("å·²å‡ºé—¨æ•°ï¼š"+count);
 		}else{
-			System.out.println("ÓĞ¸üĞÂ£¡");
+			System.out.println("æœ‰æ›´æ–°ï¼");
 			MyConstants.isSend=1;
 			MyConstants.courseCount=count;
 		}
