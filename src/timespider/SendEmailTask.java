@@ -25,62 +25,62 @@ import java.util.Map;
 import javax.mail.MessagingException;
 public class SendEmailTask extends TimerTask {  
     public void run(){  
-    	System.out.println("************ÑÎ¹¤³É¼¨Ë¢ĞÂ*******************");
-        System.out.println("»ñÈ¡Êı¾İÖĞ..."); 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//ÉèÖÃÈÕÆÚ¸ñÊ½
-        System.out.println(df.format(new Date()));// new Date()Îª»ñÈ¡µ±Ç°ÏµÍ³Ê±¼ä
+    	System.out.println("************ç›å·¥æˆç»©åˆ·æ–°*******************");
+        System.out.println("è·å–æ•°æ®ä¸­..."); 
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//è®¾ç½®æ—¥æœŸæ ¼å¼
+        System.out.println(df.format(new Date()));// new Date()ä¸ºè·å–å½“å‰ç³»ç»Ÿæ—¶é—´
         Jwxt jwxt=new Jwxt();
-        String str=jwxt.toString("1560704118", "04282914");
+        String str=jwxt.toString("", "");
         //System.out.println(str);
         float a=3;
         try {
         	if(MyConstants.isSend==1){
-        		//ÏÈ·¢ËÍÎÒµÄ
-        		sendEmail("ÑÎ¹¤³É¼¨¸üĞÂ",str,"1341156974@qq.com");
+        		//å…ˆå‘é€æˆ‘çš„
+        		sendEmail("ç›å·¥æˆç»©æ›´æ–°",str,"1341156974@qq.com");
         		
-        		//¶©ÔÄµÄ
+        		//è®¢é˜…çš„
         		List<StuInfo> list = new ArrayList<StuInfo>();
         		StuInfo info1=new StuInfo();
         		info1.setEmail("hugh.dong@outlook.com");
-        		info1.setXh("1560704106");
-        		info1.setPwd("01035219");
+        		info1.setXh("");
+        		info1.setPwd("");
         		list.add(info1);
 //        		
         		StuInfo info2=new StuInfo();
-        		info2.setEmail("2824965514@qq.com");
-        		info2.setXh("1560704204");
-        		info2.setPwd("09102824");
+        		info2.setEmail("@qq.com");
+        		info2.setXh("");
+        		info2.setPwd("");
         		list.add(info2);
 //        		
         		StuInfo info3=new StuInfo();
-        		info3.setEmail("139023996@qq.com");
-        		info3.setXh("1560704202");
-        		info3.setPwd("11097960");
+        		info3.setEmail("@qq.com");
+        		info3.setXh("");
+        		info3.setPwd("");
         		list.add(info3);
         		
         		StuInfo info4=new StuInfo();
-        		info4.setEmail("857772332@qq.com");
-        		info4.setXh("1560704130");
-        		info4.setPwd("10136123");
+        		info4.setEmail("@qq.com");
+        		info4.setXh("");
+        		info4.setPwd("");
         		list.add(info4);
         		
         		StuInfo info5=new StuInfo();
-        		info5.setEmail("2296498609@qq.com");
-        		info5.setXh("1560704203");
-        		info5.setPwd("07254967");
+        		info5.setEmail("@qq.com");
+        		info5.setXh("");
+        		info5.setPwd("");
         		list.add(info5);
         		
         		for (int i = 0; i < list.size(); i++) {
         			StuInfo info=list.get(i);
                     str=jwxt.toString(info.getXh(),info.getPwd());
-                    sendEmail("ÑÎ¹¤³É¼¨¸üĞÂ",str,info.getEmail());
-                    //sendEmail("ÑÎ¹¤³É¼¨¸üĞÂ",str,"1341156974@qq.com");
+                    sendEmail("ç›å·¥æˆç»©æ›´æ–°",str,info.getEmail());
+                    //sendEmail("ç›å·¥æˆç»©æ›´æ–°",str,"1341156974@qq.com");
 				}
         		MyConstants.isSend=0;
         		
         	}
         	else
-        		System.out.println("ÎŞ¸üĞÂ£¬²»·¢ËÍ");
+        		System.out.println("æ— æ›´æ–°ï¼Œä¸å‘é€");
 
         	System.out.println("*****************************************");
 		} catch (MessagingException | IOException e) {
@@ -90,9 +90,9 @@ public class SendEmailTask extends TimerTask {
         
     }  
     public void sendEmail(String title,String content,String email)throws MessagingException, IOException{
-    	System.out.println("»ñÈ¡Íê³É£¬·¢ËÍ:"+email+"ÖĞ..."); 
+    	System.out.println("è·å–å®Œæˆï¼Œå‘é€:"+email+"ä¸­..."); 
     	Map<String,String> map= new HashMap<String,String>();
-        SendEmail mail = new SendEmail("228919450@qq.com","wqedhnlvetfmbjcf");
+        SendEmail mail = new SendEmail("@qq.com","");
         map.put("mail.smtp.host", "smtp.qq.com");
         map.put("mail.transport.protocol", "smtp");
         map.put("mail.smtp.host", "smtp.qq.com");
@@ -103,10 +103,10 @@ public class SendEmailTask extends TimerTask {
         mail.setPros(map);
         mail.initMessage();
         /*
-         * Ìí¼ÓÊÕ¼şÈËÓĞÈıÖÖ·½·¨£º
-         * 1,µ¥ÈËÌí¼Ó(µ¥ÈË·¢ËÍ)µ÷ÓÃsetRecipient(str);·¢ËÍStringÀàĞÍ
-         * 2,¶àÈËÌí¼Ó(Èº·¢)µ÷ÓÃsetRecipients(list);·¢ËÍlist¼¯ºÏÀàĞÍ
-         * 3,¶àÈËÌí¼Ó(Èº·¢)µ÷ÓÃsetRecipients(sb);·¢ËÍStringBufferÀàĞÍ
+         * æ·»åŠ æ”¶ä»¶äººæœ‰ä¸‰ç§æ–¹æ³•ï¼š
+         * 1,å•äººæ·»åŠ (å•äººå‘é€)è°ƒç”¨setRecipient(str);å‘é€Stringç±»å‹
+         * 2,å¤šäººæ·»åŠ (ç¾¤å‘)è°ƒç”¨setRecipients(list);å‘é€listé›†åˆç±»å‹
+         * 3,å¤šäººæ·»åŠ (ç¾¤å‘)è°ƒç”¨setRecipients(sb);å‘é€StringBufferç±»å‹
          */
         List<String> list = new ArrayList<String>();
         //list.add("1341156974@qq.com");
@@ -117,7 +117,7 @@ public class SendEmailTask extends TimerTask {
         mail.setSubject(title);
 
         mail.setDate(new Date());
-        mail.setFrom("ÉòĞÂÓîµÄĞ¡ÖúÊÖ");
+        mail.setFrom("æ²ˆæ–°å®‡çš„å°åŠ©æ‰‹");
         mail.setContent(content, "text/html; charset=UTF-8");
         
         System.out.println(mail.sendMessage());
